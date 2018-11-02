@@ -1,0 +1,68 @@
+Problem: 
+
+Object1 has a large list of surfaces with several image nodes per surface using a UV map.  
+Object2 has the same list of surfaces but a different name for it's list of uv maps. 
+
+Need to duplicate surfaces from Object1 onto Object2.  All maps and surface settings are the same, only the uv map names need to change. 
+
+Initial case:  
+	Object1 has a single uvmap (myUVmap01) for the entire object.  
+		All images use the same UVMap.
+	Object2 has a single uvmap (myUvmap02) for the entire object.
+
+Current solution: 
+
+Save a material library for Object1 to disk.  Load material library onto Object2 and manually change uvmap selection on each image node in each surface for Object2 from myUVmap01 to myUVmap02.  Works but very tedious.
+
+V1.0:
+	Object based:
+	Select Object:
+		list of uvmaps
+		list of surfaces
+			list of nodes
+				list of nodes with uvmap option
+					list of current uvmap 
+
+		Select new UV Map from list
+		Make global change to selected object
+
+	Surface Based:
+	Select Surface:
+		ID of object surface is assigned
+		list of uvmaps on object
+			list of nodes
+				list of nodes with uvmap option
+					list of current uvmap 
+
+		Make global change to selected surface
+
+	Global Change:
+
+	No selected object or surface;
+		List of Objects
+		List of uvmaps
+		List of surfaces
+			list of nodes
+				list of nodes with uvmap option
+					list of current uvmap 
+
+		Select new UV Map from list
+		Make global change to all objects
+
+
+v1.5: 
+	Allow same functionality across all node data
+
+v2.0:
+
+	Add selection interface to allow drag-n-drop, multi-select changes, regex, searches, etc... across all surface node types and data types
+
+v2.5: 
+	Add same functionality (where feasible and logical) to nodes outside the surface editor.
+	
+v3.0:
+	Global, scene level surfaces manager with multiple surface graphs, 'auto generated' compound nodes, integration of something simimilar to Nodemeister,  construction of sliders and other cross-node-type connectors, etc.   
+
+
+
+
