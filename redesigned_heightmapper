@@ -1,9 +1,0 @@
-resolution independent heightmap adjustments
-
-map pixel value to linear space 0 to 1 floating point
-map values to spline
-remap spline to 32bit values and allow adjustments for "cage" resolution to remove banding
-allow adjustments of min/max to normalize or equalize, map to specific "heights", 
-
-advanced:  select a points and set to specific height and remap ranges to fit, etc...   
-	example.   Min = 850m, max = 3250m.  Select points:  p1=1100m, p2=875m, p3=2522m, p4=3000m. Adjust splines to match those points to those heights and remap gradients.
