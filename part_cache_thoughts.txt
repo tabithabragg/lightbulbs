@@ -1,0 +1,45 @@
+random thoughts on an indexed particle cache data file format.
+
+(onbirth)
+particle index -- 64bit 
+birth time -- 32bit (allows sub frame creation if possible)
+birth frame -- 32bit (float if subframes?)
+birth location -- 32bit vector x,y,z
+birth orientation -- 32bit vector u,v (?)
+birth motion vector -- 32bit vector x,y,z (?)
+birth mass -- 32bit
+birth volume -- 32bit
+birth (other) -- 32bit 
+particlelife -- 1bit -- islive?
+index -- end-of-entry-tag-of-some-sort
+(onframe iter)
+particle index -- 64bit
+current time -- 32bit (allows sub frame creation if possible)
+current frame -- 32bit (float if subframes?)
+current location -- 32bit vector x,y,z
+current orientation -- 32bit vector u,v (?)
+current motion vector -- 32bit vector x,y,z (?)
+current mass -- 32bit
+current volume -- 32bit
+current (other) -- 32bit -- other will be as many as needed
+particlelife -- 1bit -- islive?
+index -- end-of-entry-tag-of-some-sort
+(ondeath)
+particle index -- 64bit
+death time -- 32bit (allows sub frame creation if possible)
+death frame -- 32bit (float if subframes?)
+death location -- 32bit vector x,y,z
+death orientation -- 32bit vector u,v (?)
+death motion vector -- 32bit vector x,y,z (?)
+death mass -- 32bit
+death volume -- 32bit
+death (other) -- 32bit -- other will be as many as needed
+particlelife -- 1bit -- islive?
+index -- end-of-entry-tag-of-some-sort
+
+
+let solver order determine "sorting" of data files per frame. ie.. order of creation in solver == order in data file.  Up to interpreter / renderer to read and sort as necessary.  This can change based on memory optimization needs though, but at the cost of potentially slowing down solver.
+
+solver tracks index of live particles.  Simple index stack that removes dead particles from stack to prevent having to run computations on dead particles but maintains 'top of stack' index so new births get next index in stack to maintain consecutive cache indexes. 
+
+ 
