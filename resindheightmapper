@@ -7,3 +7,6 @@ allow adjustments of min/max to normalize or equalize, map to specific "heights"
 
 advanced:  select a points and set to specific height and remap ranges to fit, etc...   
 	example.   Min = 850m, max = 3250m.  Select points:  p1=1100m, p2=875m, p3=2522m, p4=3000m. Adjust splines to match those points to those heights and remap gradients.
+turbo-advanced: Allow secondary splines or vetor maps to modify values as needed alone u/v or other mapping methods
+	this would allow resolution independent vector displacement of landscape data prior to freezing to polys.
+
